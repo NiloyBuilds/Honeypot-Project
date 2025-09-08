@@ -1,22 +1,29 @@
-# Honeypot Java Project 🔒
-Java-based Honeypot for detecting suspicious network activity, Nmap scans, and logging intrusion attempts on Kali Linux.
+# Java Honeypot System
 
-A Java-based Honeypot project designed for cybersecurity research and analysis.  
-This project can detect suspicious network activity, identify Nmap scans, and log intrusion attempts on a **Kali Linux** environment.
-
----
-
-## 🚀 Features
-- Detects unauthorized access attempts  
-- Logs attacker IP, timestamp, and activities  
-- Identifies **Nmap scan detection**  
-- Simple interface for monitoring logs  
-- Runs on **Java** (cross-platform support)
+A **Honeypot server** built in Java for detecting suspicious network activity, such as rapid scanning or Nmap probes.  
+This project simulates a fake web server to attract and log potential attackers, while recording IPs, device details, and timestamps.
 
 ---
 
-## 🛠️ Technologies Used
-- **Java (JDK 8 or higher)**  
-- **Socket Programming**  
-- **Multithreading**  
-- **Kali Linux** (for testing environment)
+## 🏷️ Features
+
+- Listens on a configurable port (default 2222)  
+- Detects **rapid scans / Nmap probes** using time threshold (1 second)  
+- Logs IP addresses, timestamps, and device/user-agent info  
+- Serves a **fake HTML page** (`login.html`) to simulate a web server  
+- Saves logs to a configurable log file (`logs/connections.log`)  
+- Simple concurrency-safe handling using `ConcurrentHashMap`  
+
+---
+
+## 📁 Project Files
+
+| File | Description |
+|------|-------------|
+| `Honeypot.java` | Main Java server code |
+| `config/config.txt` | Configuration file (port and log file path) |
+| `login.html` | Fake HTML page served to clients |
+| `logs/connections.log` | Auto-generated log file of detected connections |
+
+---
+
